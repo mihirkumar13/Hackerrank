@@ -1,0 +1,29 @@
+#include <iostream>
+
+using namespace std;
+
+class Base {
+public:
+    void display() {
+        cout << "Hello to class" << endl;
+    }
+};
+
+class Derived : public Base {
+public:
+    void disp() {
+        cout << "Welcome Derived Class" << endl;
+    }
+};
+
+int main() {
+    Base* ptr = new Derived();
+    ptr->display(); // Calls Base class display method
+
+    // Type casting to call Derived class method
+    Derived* derivedPtr = static_cast<Derived*>(ptr);
+    derivedPtr->disp(); // Calls Derived class disp method
+
+    delete ptr; // Don't forget to free the allocated memory
+    return 0;
+}
